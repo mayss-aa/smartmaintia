@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-lg: 64rem;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --color-primary-50: #EFF6FF;
+  --color-primary-100: #DBEAFE;
+  --color-primary-200: #BFDBFE;
+  --color-primary-300: #93C5FD;
+  --color-primary-400: #60A5FA;
+  --color-primary-500: #2563EB;
+  --color-primary-600: #1D4ED8;
+  --color-primary-700: #1E40AF;
+  --color-primary-800: #1E3A8A;
+  --color-primary-900: #172554;
+
+  --color-neutral-50: #FAFAFA;
+  --color-neutral-100: #F5F5F5;
+  --color-neutral-200: #E5E5E5;
+  --color-neutral-300: #D4D4D4;
+  --color-neutral-400: #A3A3A3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-info: #3B82F6;
+
+  --color-surface: #FFFFFF;
+  --color-border: #E5E7EB;
+  --color-text-primary: #111827;
+  --color-text-secondary: #6B7280;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+
+  --shadow-card: 0 1px 3px rgb(0 0 0 / 0.06), 0 1px 2px rgb(0 0 0 / 0.04);
+  --shadow-card-hover: 0 8px 30px rgb(0 0 0 / 0.10), 0 2px 8px rgb(0 0 0 / 0.06);
+  --shadow-dialog: 0 20px 60px rgb(0 0 0 / 0.12), 0 8px 24px rgb(0 0 0 / 0.08);
+  --shadow-hover: 0 10px 25px -5px rgb(0 0 0 / 0.10), 0 4px 10px -5px rgb(0 0 0 / 0.04);
+  --shadow-navbar: 0 1px 3px rgb(0 0 0 / 0.04), 0 1px 2px rgb(0 0 0 / 0.03);
+  --shadow-btn: 0 1px 2px rgb(0 0 0 / 0.04);
+  --shadow-btn-hover: 0 4px 12px rgb(37 99 235 / 0.25);
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #F8FAFC;
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: var(--color-primary-200);
+  color: var(--color-primary-900);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary-400);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+button:not(:disabled),
+a:not(:disabled),
+.btn:not(:disabled) {
+  cursor: pointer;
+}
+
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.btn-hover {
+  transition: all 200ms ease;
+}
+
+.btn-hover:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+  background-color: #1D4ED8;
+}
+
+.btn-hover:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(37, 99, 235, 0.2);
+  transition-duration: 50ms;
+}
+
+.login-input {
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.login-input:focus {
+  border-color: #2563EB;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.login-input:hover:not(:focus) {
+  border-color: #9CA3AF;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-height: 700px) {
+  :root {
+    --fs-3xl: clamp(17px, 1.50vw, 23px);
+    --ctrl-h: clamp(32px, 2.6vh, 40px);
+  }
+}
+@media (max-height: 560px) {
+  .hero-paragraph { display: none; }
+}
+
+:root {
+  --fs-xs:   clamp(9px, 0.55vw, 10.5px);
+  --fs-sm:   clamp(10px, 0.64vw, 11.5px);
+  --fs-base: clamp(11px, 0.71vw, 12.5px);
+  --fs-lg:   clamp(12px, 0.84vw, 14px);
+  --fs-xl:   clamp(13px, 0.97vw, 17px);
+  --fs-2xl:  clamp(16px, 1.28vw, 21px);
+  --fs-3xl:  clamp(18px, 1.72vw, 30px);
+
+  --sp-xs:   clamp(4px, 0.6vh, 8px);
+  --sp-sm:   clamp(8px, 1.1vh, 14px);
+  --sp-md:   clamp(12px, 1.7vh, 22px);
+  --sp-lg:   clamp(16px, 2.4vh, 32px);
+  --pad-x:   clamp(16px, 2.6vw, 48px);
+  --pad-y:   clamp(12px, 2.2vh, 36px);
+
+  --ctrl-h:  clamp(34px, 2.9vh, 46px);
+  --icon:    clamp(14px, 0.95vw, 18px);
+  --radius:  clamp(10px, 0.7vw, 16px);
+
+  --sidebar-w: clamp(160px, 13vw, 220px);
+  --sidebar-w-collapsed: 56px;
+  --header-h:  clamp(48px, 6.5vh, 68px);
+  --tile: clamp(32px, 2.4vw, 40px);
+}
+
+@media (max-height: 620px) {
+  .fit-screen { overflow-y: auto; }
+}
+
+.scroll-area {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(203 213 225) transparent;
+}
+.scroll-area::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scroll-area::-webkit-scrollbar-thumb {
+  background: rgb(203 213 225);
+  border-radius: 999px;
+}
+.scroll-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@theme {
+  --text-fluid-xs: clamp(9px, 0.55vw, 10.5px);
+  --text-fluid-sm: clamp(10px, 0.64vw, 11.5px);
+  --text-fluid-base: clamp(11px, 0.71vw, 12.5px);
+  --text-fluid-lg: clamp(12px, 0.84vw, 14px);
+  --text-fluid-xl: clamp(13px, 0.97vw, 17px);
+  --text-fluid-2xl: clamp(16px, 1.28vw, 21px);
+  --text-fluid-3xl: clamp(18px, 1.45vw, 25px);
+
+  --spacing-fluid-xs: clamp(4px, 0.6vh, 8px);
+  --spacing-fluid-sm: clamp(8px, 1.1vh, 14px);
+  --spacing-fluid-md: clamp(12px, 1.7vh, 22px);
+  --spacing-fluid-lg: clamp(16px, 2.4vh, 32px);
+  --spacing-pad-x: clamp(16px, 2.6vw, 48px);
+  --spacing-pad-y: clamp(12px, 2.2vh, 36px);
+
+  --height-ctrl: clamp(34px, 2.9vh, 46px);
+  --height-header: clamp(48px, 6.5vh, 68px);
+
+  --width-sidebar: clamp(160px, 13vw, 220px);
+
+  --radius-fluid: clamp(10px, 0.7vw, 16px);
+}
